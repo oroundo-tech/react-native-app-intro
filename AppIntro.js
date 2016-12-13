@@ -115,7 +115,14 @@ export default class AppIntro extends Component {
       doneFadeOpacity: new Animated.Value(0),
       nextOpacity: new Animated.Value(1),
       parallax: new Animated.Value(0),
+      scrollEnabled: props.scrollEnabled || true
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.scrollEnabled !== this.props.scrollEnabled) {
+      this.setState({ scrollEnabled: nextProps.scrollEnabled });
+    }
   }
 
   onNextBtnClick = (context) => {
@@ -339,8 +346,9 @@ export default class AppIntro extends Component {
     return (
       <View>
         {androidPages}
-        <Swiper
+        <Swiper ref='swiper'
           loop={false}
+          scrollEnabled={this.state.scrollEnabled}
           index={this.props.defaultIndex}
           renderPagination={this.renderPagination}
           onMomentumScrollEnd={(e, state) => {
@@ -351,7 +359,7 @@ export default class AppIntro extends Component {
             this.props.onSlideChange(state.index, state.total);
           }}
           onScroll={Animated.event(
-            [{ x: this.state.parallax }]
+            [{ nativeEvent: { contentOffset: { x: this.state.parallax } } }]
           )}
         >
           {pages}
@@ -388,6 +396,7 @@ AppIntro.propTypes = {
   showSkipButton: PropTypes.bool,
   showDoneButton: PropTypes.bool,
   showDots: PropTypes.bool,
+  scrollEnabled: PropTypes.bool
 };
 
 AppIntro.defaultProps = {
@@ -406,5 +415,6 @@ AppIntro.defaultProps = {
   defaultIndex: 0,
   showSkipButton: true,
   showDoneButton: true,
-  showDots: true
+  showDots: true,
+  scrollEnabled: true
 };
