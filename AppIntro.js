@@ -96,6 +96,11 @@ const defaulStyles = {
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
+  doneButtonText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    fontFamily: 'Arial',
+  },
   full: {
     height: 80,
     width: 100,
