@@ -366,6 +366,7 @@ export default class AppIntro extends Component {
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: this.state.parallax } } }]
           )}
+          scrollEventThrottle={16}
         >
           {pages}
         </Swiper>
