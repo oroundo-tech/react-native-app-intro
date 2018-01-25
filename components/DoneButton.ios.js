@@ -25,9 +25,7 @@ export const DoneButton = ({
       }]}
       >
         <View style={styles.full}>
-          <Text style={[styles.controllText, {
-            color: rightTextColor, paddingRight: 30,
-          }]}>
+          <Text style={[styles.doneButtonText, { color: rightTextColor }]}>
             {doneBtnLabel}
           </Text>
         </View>
@@ -45,4 +43,3 @@ export const DoneButton = ({
 }
 
 export default DoneButton
-        
