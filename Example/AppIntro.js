@@ -86,7 +86,13 @@ const defaulStyles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  btnContainer: {
+  nextDoneBtnContainer: {
+    flex: 0.2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50,
+  },
+  skipBtnContainer: {
     flex: 0.2,
     justifyContent: 'center',
     alignItems: 'center',
@@ -97,7 +103,19 @@ const defaulStyles = {
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
-  full: {
+  nextTouchable: {
+    height: 80,
+    width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  skipTouchable: {
+    height: 80,
+    width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  doneTouchable: {
     height: 80,
     width: 100,
     justifyContent: 'center',

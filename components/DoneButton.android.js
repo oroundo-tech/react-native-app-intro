@@ -11,8 +11,8 @@ export const DoneButton = ({
   doneBtnLabel, nextBtnLabel,
 }) => {
   return (
-    <View style={[styles.btnContainer, { height: 0, paddingBottom: 5 }]}>
-      <TouchableOpacity style={styles.full}
+    <View style={[isDoneBtnShow ? styles.doneBtnContainer : styles.nextBtnContainer]}>
+      <TouchableOpacity style={isDoneBtnShow ? styles.doneTouchable : styles.nextTouchable}
         onPress={ isDoneBtnShow ? onDoneBtnClick : onNextBtnClick}
       >
        <Text style={[isDoneBtnShow ? styles.doneButtonText : styles.nextButtonText, { color: rightTextColor }]}>

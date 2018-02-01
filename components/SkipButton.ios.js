@@ -13,18 +13,18 @@ export const SkipButton = ({
   skipFadeOpacity
 }) => {
   return (
-    <Animated.View style={[styles.btnContainer, {
+    <Animated.View style={[styles.skipBtnContainer, {
       opacity: skipFadeOpacity,
       transform: [{
         translateX: skipFadeOpacity.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, 15],
+          outputRange: [-15, 0],
         }),
       }],
     }]}
     >
       <TouchableOpacity
-        style={styles.full}
+        style={styles.skipTouchable}
         onPress={isSkipBtnShow ? () => onSkipBtnClick() : null}>
         <Text style={[styles.controllText, { color: leftTextColor }]}>
           {skipBtnLabel}
