@@ -86,11 +86,20 @@ const defaulStyles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  btnContainer: {
-    flex: 0.2,
-    justifyContent: 'center',
+  nextDoneBtnContainer: {
+    flex: 0.32,
     alignItems: 'center',
-    height: 50,
+    justifyContent: 'center'
+  },
+  skipBtnContainer: {
+    flex: 0.32,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  animatedBtnSubcontainer: {
+    height: 0,
+    flex: 1,
+    position: 'absolute'
   },
   nextButtonText: {
     fontSize: 25,
@@ -102,12 +111,27 @@ const defaulStyles = {
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
-  full: {
-    height: 80,
-    width: 100,
+  skipTouchable: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  nextTouchable: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  doneTouchable: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  dotsContainer: {
+    flex: 0.36,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 }
 
 export default class AppIntro extends Component {
@@ -223,12 +247,15 @@ export default class AppIntro extends Component {
           isSkipBtnShow={isSkipBtnShow}
           styles={this.styles}
           onSkipBtnClick={() => this.props.onSkipBtnClick(index)} /> :
-          <View style={this.styles.btnContainer} />
+          <View style={this.styles.skipBtnContainer} />
         }
-        {this.props.showDots && RenderDots(index, total, {
-          ...this.props,
-          styles: this.styles
-        })}
+        {this.props.showDots &&
+          <View style={this.styles.dotsContainer}>
+            {RenderDots(index, total, {
+              ...this.props,
+              styles: this.styles
+            })}
+          </View>}
         {this.props.showDoneButton ? <DoneButton
             {...this.props}
             {...this.state}
@@ -236,7 +263,7 @@ export default class AppIntro extends Component {
             styles={this.styles}
             onNextBtnClick={this.onNextBtnClick.bind(this, context)}
             onDoneBtnClick={this.props.onDoneBtnClick} /> :
-            <View style={this.styles.btnContainer} />
+            <View style={this.styles.doneBtnContainer} />
           }
       </View>
     );

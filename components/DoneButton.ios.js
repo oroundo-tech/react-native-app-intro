@@ -13,25 +13,25 @@ export const DoneButton = ({
   doneFadeOpacity, skipFadeOpacity, nextOpacity
 }) => {
   return (
-    <View style={styles.btnContainer}>
-      <Animated.View style={[styles.full, { height: 0 }, {
+    <View style={styles.nextDoneBtnContainer}>
+      <Animated.View style={[styles.animatedBtnSubcontainer, {
         opacity: doneFadeOpacity,
         transform: [{
-          translateX: skipFadeOpacity.interpolate({
+          translateX: doneFadeOpacity.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, 20],
+            outputRange: [50, 0],
           }),
         }],
       }]}
       >
-        <View style={styles.full}>
+        <View style={styles.doneTouchable}>
           <Text style={[styles.doneButtonText, { color: rightTextColor }]}>
             {doneBtnLabel}
           </Text>
         </View>
       </Animated.View>
-      <Animated.View style={[styles.full, { height: 0 }, { opacity: nextOpacity }]}>
-        <TouchableOpacity style={styles.full}
+      <Animated.View style={[styles.animatedBtnSubcontainer, { opacity: nextOpacity }]}>
+        <TouchableOpacity style={styles.nextTouchable}
           onPress={ isDoneBtnShow ? onDoneBtnClick : onNextBtnClick}>
          <Text style={[styles.nextButtonText, { color: rightTextColor }]}>
           {nextBtnLabel}
