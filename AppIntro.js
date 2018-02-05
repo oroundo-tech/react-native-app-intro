@@ -87,12 +87,12 @@ const defaulStyles = {
     alignItems: 'center',
   },
   nextDoneBtnContainer: {
-    flex: 0.32,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
   skipBtnContainer: {
-    flex: 0.32,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -119,7 +119,7 @@ const defaulStyles = {
   nextTouchable: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   doneTouchable: {
     flex: 1,
@@ -127,9 +127,11 @@ const defaulStyles = {
     alignItems: 'center'
   },
   dotsContainer: {
-    flex: 0.36,
+    flex: 0.9,
     flexDirection: 'row',
-    justifyContent: 'center',
+    marginLeft: 2,
+    marginRight: 2,
+    justifyContent: 'space-around',
     alignItems: 'center'
   }
 }
