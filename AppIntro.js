@@ -97,7 +97,6 @@ const defaulStyles = {
     justifyContent: 'center',
   },
   animatedBtnSubcontainer: {
-    height: 0,
     flex: 1,
     position: 'absolute'
   },
